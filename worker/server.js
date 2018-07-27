@@ -58,6 +58,8 @@ function process_request(request) {
 }
 
 container.on("connection_open", (event) =>  {
+    console.log("%s: Connected to AMQP messaging service at %s:%s", id, amqp_host, amqp_port);
+
     event.connection.open_receiver("work-queue/requests");
     worker_update_sender = event.connection.open_sender("work-queue/worker-updates");
 });
@@ -119,8 +121,6 @@ const opts = {
 };
 
 container.connect(opts);
-
-console.log("%s: Connected to AMQP messaging service at %s:%s", id, amqp_host, amqp_port);
 
 // HTTP
 
