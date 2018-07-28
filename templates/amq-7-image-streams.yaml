@@ -24,4 +24,4 @@ items:
         version: '1.0'
       from:
         kind: DockerImage
-        name: amq-broker-7/amq-broker71-openshift:latest
+        name: registry.access.redhat.com/amq-broker-7-tech-preview/amq-broker-71-openshift
