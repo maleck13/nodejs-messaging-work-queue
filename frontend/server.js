@@ -126,6 +126,7 @@ app.use(body_parser.json());
 probe(app)
 
 app.post("/api/send-request", (req, resp) => {
+    console.log("send request", req.body);
     let message = {
         message_id: `${id}/${request_sequence++}`,
         application_properties: {
