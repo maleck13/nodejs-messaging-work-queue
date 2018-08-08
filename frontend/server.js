@@ -127,12 +127,13 @@ app.use(body_parser.json());
 probe(app)
 
 app.post("/api/send-request", (req, resp) => {
-    console.log("send request", req.body);
+    console.log("send request called", req.body);
     let message = {
         message_id: `${id}/${request_sequence++}`,
         application_properties: {
             uppercase: req.body.uppercase,
             reverse: req.body.reverse,
+            stock: req.body.stock
         },
         body: req.body.text,
         stock: req.body.stock
