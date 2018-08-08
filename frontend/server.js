@@ -97,6 +97,7 @@ container.on("message", (event) => {
             requestId: response.correlation_id,
             workerId: response.application_properties.workerId,
             text: response.body,
+            stock: response.stock
         };
 
         return;

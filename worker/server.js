@@ -45,6 +45,7 @@ function process_request(request) {
     let uppercase = request.application_properties.uppercase;
     let reverse = request.application_properties.reverse;
     let text = request.body;
+    let stock = request.stock;
 
     if (uppercase) {
         text = text.toUpperCase();
