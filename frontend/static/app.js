@@ -60,6 +60,7 @@ class Application {
 
         let data = {
             text: form.text.value,
+            stock: form.stock.value,
             uppercase: form.uppercase.checked,
             reverse: form.reverse.checked,
         };
@@ -70,6 +71,7 @@ class Application {
         request.send(json);
 
         form.text.value = "";
+        form.stock.value = "";
     }
 
     renderResponses() {
