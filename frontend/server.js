@@ -135,8 +135,7 @@ app.post("/api/send-request", (req, resp) => {
             reverse: req.body.reverse,
             stock: req.body.stock
         },
-        body: req.body.text,
-        stock: req.body.stock
+        body: {type:req.body.text, stock: req.body.stock}
     };
 
     request_messages.push(message);
