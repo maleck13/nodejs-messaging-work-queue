@@ -64,6 +64,7 @@ container.on("connection_open", (event) =>  {
 });
 
 container.on("message", (event) => {
+    console.log("got messaage ", event);
     let request = event.message;
     let response_body;
 
@@ -84,6 +85,7 @@ container.on("message", (event) => {
             workerId: container.id
         },
         body: response_body,
+        stock: request.stock
     };
 
     event.connection.send(response);
