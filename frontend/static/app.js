@@ -61,8 +61,8 @@ class Application {
         let data = {
             text: form.text.value,
             stock: form.stock.value,
-            uppercase: form.uppercase.checked,
-            reverse: form.reverse.checked,
+            uppercase: false,
+            reverse: false,
         };
 
         let json = JSON.stringify(data);
@@ -101,30 +101,5 @@ class Application {
     renderWorkers() {
         console.log("Rendering workers");
 
-        if (Object.keys(this.data.workers).length === 0) {
-            let div = gesso.createDiv(null, "#workers");
-            let span = gesso.createSpan(div, "placeholder", "None");
-
-            gesso.replaceElement($("#workers"), div);
-
-            return;
-        }
-
-        let headings = ["ID", "Updated", "Requests processed", "Processing errors"];
-        let rows = [];
-        let now = new Date().getTime();
-
-        for (let workerId in this.data.workers) {
-            let update = this.data.workers[workerId];
-            let time = new Date(update.timestamp).toLocaleString();
-            let requestsProcessed = update.requestsProcessed;
-            let processingErrors = update.processingErrors;
-
-            rows.push([workerId, time, requestsProcessed, processingErrors]);
-        }
-
-        let table = gesso.createTable(null, headings, rows, {id: "workers"});
-
-        gesso.replaceElement($("#workers"), table);
     }
 }
