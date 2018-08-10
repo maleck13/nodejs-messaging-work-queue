@@ -75,27 +75,7 @@ class Application {
     }
 
     renderResponses() {
-        if (this.data.requestIds.length === 0) {
-            return;
-        }
-
-        console.log("Rendering responses");
-
-        let div = gesso.createDiv(null, "#responses");
-
-        for (let requestId of this.data.requestIds.reverse()) {
-            let response = this.data.responses[requestId];
-
-            if (response == null) {
-                continue;
-            }
-
-            let item = gesso.createDiv(div, "response");
-            gesso.createDiv(item, "worker", response.workerId);
-            gesso.createDiv(item, "text", response.text);
-        }
-
-        gesso.replaceElement($("#responses"), div);
+      
     }
 
     renderWorkers() {
